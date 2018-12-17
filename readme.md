@@ -238,4 +238,7 @@ $ git remote add origin https://github.com/zhkumsg/git_test.git
 这时候拉取的就是最新的，其他操作同上
 
 
-> 注意前面我们再推送和拉取的时候都指定了远程名和分支名，因为手动配置下还没有设置默认分组和远程，我们通过
+> 注意前面我们再推送和拉取的时候都指定了远程名和分支名，因为手动配置下还没有设置默认分组和远程（也叫关联分支），按照提示，我们输出下面的命令即可  
+``` bash
+$ git push --set-upstream origin master
+```
