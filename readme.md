@@ -16,7 +16,7 @@
 
 直接去官网下载安装即可，你已经安装了，可以跳过这一步
 
-#### 创建项目（创建文件夹）
+#### 创建项目（创建文件夹 npm 初始化可选）
 
 git 是对文件夹下的全部资源做监听的，一般情况下我们是对一个项目做版本控制监听，所以用 node 创建一个项目（在新建文件夹`git-test`下）
 
@@ -251,7 +251,9 @@ $ git push --set-upstream origin master
 关联分支后，默认远程和分支就是 origin 和 master，在推送和拉取的时候就不用特定指向了。
 
 ## 高级操作
+
 ![alt 参考资料](https://raw.githubusercontent.com/zhkumsg/git_test/master/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181217092218.png)
+
 #### 撤销修改
 
 #### 版本回退
