@@ -184,7 +184,7 @@ git remote
 
 发现没有信息，这是因为我们还没有配置任何的仓库信息。我们现在复制并 github 官网的信息
 
-``` bash
+```bash
 $ git remote add origin https://github.com/zhkumsg/git_test.git
 ```
 
@@ -221,24 +221,43 @@ $ git push -u origin master
 执行完后线上可以看到最新的内容
 
 #### 拉去最新到本地
-如果有两部电脑，A电脑提交最新代码上github后，B电脑的文件是不会主动更新的，或者直接在github上修改文件，本地电脑也是不会变化的，需要手动去`拉取`代码。为了方便，我们直接在github上修改文件，修改test.txt的内容。   
 
-修改略.....  
+如果有两部电脑，A 电脑提交最新代码上 github 后，B 电脑的文件是不会主动更新的，或者直接在 github 上修改文件，本地电脑也是不会变化的，需要手动去`拉取`代码。为了方便，我们直接在 github 上修改文件，修改 test.txt 的内容。
 
-这时候我们通过pull命令可以拉取最新
-``` bash
+修改略.....
+
+这时候我们通过 pull 命令可以拉取最新
+
+```bash
 $ git pull origin master
 ```
-指定仓库指定分支拉取最新，如果没有冲突，可以在本地看到最新的修改。  
 
-如果现在希望在另外一部电脑B获取线上内容，需要把电脑B的id_rsa.pub加到github白名单上（或者在github上forkgit_test），然后clone到本地
-``` bash
+指定仓库指定分支拉取最新，如果没有冲突，可以在本地看到最新的修改。
+
+如果现在希望在另外一部电脑 B 获取线上内容，需要把电脑 B 的 id_rsa.pub 加到 github 白名单上（或者在 github 上 forkgit_test），然后 clone 到本地
+
+```bash
 $ git remote add origin https://github.com/zhkumsg/git_test.git
 ```
+
 这时候拉取的就是最新的，其他操作同上
 
+> 注意前面我们再推送和拉取的时候都指定了远程名和分支名，因为手动配置下还没有设置默认分组和远程（也叫关联分支），按照提示，我们输出下面的命令即可
 
-> 注意前面我们再推送和拉取的时候都指定了远程名和分支名，因为手动配置下还没有设置默认分组和远程（也叫关联分支），按照提示，我们输出下面的命令即可  
-``` bash
+```bash
 $ git push --set-upstream origin master
 ```
+
+关联分支后，默认远程和分支就是 origin 和 master，在推送和拉取的时候就不用特定指向了。
+
+## 高级操作
+![alt 参考资料](https://raw.githubusercontent.com/zhkumsg/git_test/master/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181217092218.png)
+#### 撤销修改
+
+#### 版本回退
+
+#### 创建分支
+
+#### 分支合并
+
+#### 多个仓库
