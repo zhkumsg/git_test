@@ -184,8 +184,8 @@ git remote
 
 发现没有信息，这是因为我们还没有配置任何的仓库信息。我们现在复制并 github 官网的信息
 
-```bash
-git remote add origin https://github.com/zhkumsg/git_test.git
+``` bash
+$ git remote add origin https://github.com/zhkumsg/git_test.git
 ```
 
 这代表为当前项目添加一个名为 origin 的远程仓库。（origin 为默认的远程仓库名称，现在不建议修改，后面介绍）
@@ -197,17 +197,45 @@ git remote add origin https://github.com/zhkumsg/git_test.git
 #### 提交到仓库
 
 配置好仓库后，我们可以把文件推送到远程仓库
-``` bash
+
+```bash
 $ git push
 ```
 
-但是，有可能会抛这样的异常出来：“git push --set-upstream origin master”，这就是手动配置仓库而不是clone的原因的，此时git不知道你要推送到哪一个仓库上（是可以配置多可仓库，而且还有分支），所以这时候我们需要指定仓库和分支（默认仓库origin、默认主分支master）,另外需要注意的是，如果线上仓库是空白的，还需要在命令中加`-u`新建主分支，如果已经不是空白的了，-u可以忽略
-``` bash
+但是，有可能会抛这样的异常出来：“git push --set-upstream origin master”，这就是手动配置仓库而不是 clone 的原因的，此时 git 不知道你要推送到哪一个仓库上（是可以配置多可仓库，而且还有分支），所以这时候我们需要指定仓库和分支（默认仓库 origin、默认主分支 master）,另外需要注意的是，如果线上仓库是空白的，还需要在命令中加`-u`新建主分支，如果已经不是空白的了，-u 可以忽略
+
+```bash
 $ git push -u origin master
 ```
-进度条走完后，刷新一下github，会发现你的项目已经推送上去了。  
 
+进度条走完后，刷新一下 github，会发现你的项目已经推送上去了。
 
+---
 
+接着，你修改了本地文件，比如修改了 test.txt 的内容，我们要提交到线上，还是按照三步走
+
+1. git add -A
+2. git commit -m "我更想了 test.txt"
+3. git push origin master
+
+执行完后线上可以看到最新的内容
 
 #### 拉去最新到本地
+如果有两部电脑，A电脑提交最新代码上github后，B电脑的文件是不会主动更新的，或者直接在github上修改文件，本地电脑也是不会变化的，需要手动去`拉取`代码。为了方便，我们直接在github上修改文件，修改test.txt的内容。   
+
+修改略.....  
+
+这时候我们通过pull命令可以拉取最新
+``` bash
+$ git pull origin master
+```
+指定仓库指定分支拉取最新，如果没有冲突，可以在本地看到最新的修改。  
+
+如果现在希望在另外一部电脑B获取线上内容，需要把电脑B的id_rsa.pub加到github白名单上（或者在github上forkgit_test），然后clone到本地
+``` bash
+$ git remote add origin https://github.com/zhkumsg/git_test.git
+```
+这时候拉取的就是最新的，其他操作同上
+
+
+> 注意前面我们再推送和拉取的时候都指定了远程名和分支名，因为手动配置下还没有设置默认分组和远程，我们通过
